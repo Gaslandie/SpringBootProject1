@@ -1,6 +1,17 @@
 package com.gaslandie.springbootProject1;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+
+//notre entité qui a pour equivalent la table products de notre base de données, à chaque objet on fait correspondre une row
+@Entity
 public class Product{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//autoincrementation
+    private int id;
     private String name;
     private String type;
     private String place;
@@ -17,7 +28,7 @@ public class Product{
         this.warranty = warranty;
     }
 
-
+    
     public String getName() {
         return name;
     }
@@ -55,6 +66,16 @@ public class Product{
 
     public void setWarranty(int warranty) {
         this.warranty = warranty;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 }

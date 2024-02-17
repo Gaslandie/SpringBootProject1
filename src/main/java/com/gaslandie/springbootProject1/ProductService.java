@@ -2,14 +2,16 @@ package com.gaslandie.springbootProject1;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProductService {
+    @Autowired //spring va creer et gerer notre objet
     ProductDB db;
-    public void addProduct(Product p){
-        db.save(p);
-    }
+    // public void addProduct(Product p){
+    //     db.save(p);
+    // }
 
     public List<Product> getAllProducts(){
         return db.findAll();
